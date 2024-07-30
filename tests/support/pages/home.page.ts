@@ -44,4 +44,31 @@ export default class {
   async clickPreviousPageButton () {
     await this.page.click(HomePageElements.previousPageButton());
   }
+
+  async getHeaderText () {
+    return this.page.textContent(HomePageElements.headerText());
+  }
+
+  async getNewLanguage (currentLanguage) {
+    const languageList = await this.getLanguageList();
+    const clearLanguageList = this.excludeLanguageByKey(languageList, currentLanguage);
+    return this.getRandomLanguage(clearLanguageList);
+  }
+
+  async getLanguageList () {
+    const responsePromise = this.page.waitForResponse('**/rest/languages');
+    await this.openBasePage();
+    const response = await responsePromise;
+    // @ts-ignore
+    return JSON.parse(await response.body());
+  }
+
+  getRandomLanguage = (arr) => {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    return arr[randomIndex];
+  };
+
+  excludeLanguageByKey = (arr, shortKey) => {
+    return arr.filter(item => item.shortKey !== shortKey);
+  };
 }

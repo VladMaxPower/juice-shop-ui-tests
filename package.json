@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "test": "",
+    "lint": "eslint . --fix"
   },
   "author": "",
   "license": "ISC",
