@@ -10,9 +10,13 @@
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.45.3",
-    "@types/node": "^22.0.0"
+    "@types/node": "^22.0.0",
+    "eslint-plugin-playwright": "^1.6.2"
   },
   "dependencies": {
-    "dotenv": "^16.4.5"
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "eslint-config-semistandard": "^17.0.0"
   }
 }

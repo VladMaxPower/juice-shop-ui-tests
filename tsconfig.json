@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "sourceMap": false,
+    "lib": ["es5", "dom","es2019"],
+    "types": ["node"],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "baseUrl": "./",
+  },
+  "exclude": ["../node_modules/*"],
+  "include": ["**/*.ts"]
+}
