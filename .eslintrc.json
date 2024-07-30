@@ -1,0 +1,28 @@
+{
+  "extends": ["semistandard"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "eslint-plugin-playwright"],
+  "ignorePatterns": ["*.json", "*.md", "*.yaml", "Dockerfile", "node_modules/"],
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "object-curly-spacing": [2, "always"],
+    "no-unused-expressions": "off",
+    "import/newline-after-import": ["error", { "count": 1 }],
+    "lines-between-class-members": "error",
+    "dot-notation": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["semistandard"]
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["semistandard"]
+    }
+  ]
+}
