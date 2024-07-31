@@ -32,14 +32,13 @@ To run all tests using Docker, follow these steps:
 
 1. Build the Docker image:
    `$ docker build -t juice-shop-ui-tests .`
-2. Run the Docker container for MacOS and Windows:
+2. Run the Docker container for macOS and Windows:
    ``` 
     $ docker run \
    -e "BASE_URL=http://host.docker.internal:3000" \
    -e "USER_EMAIL=your_email@example.com" \
    -e "USER_PASSWORD=your_password" \
-   -p 9323:9323 \
-   juice-shop-ui-tests`
+   juice-shop-ui-tests
    ```
    For Linux:
    ``` 

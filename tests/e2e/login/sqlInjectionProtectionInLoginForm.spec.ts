@@ -3,7 +3,7 @@ import LoginPage from '../../support/pages/login.page';
 import BannersPage from '../../support/pages/banners.page';
 import { UserData } from '../../types/interfaces';
 
-test('Check SQL injection protection in the login form', async ({ page }) => {
+test('(security) Check SQL injection protection in the login form', async ({ page }) => {
   const loginPage:LoginPage = new LoginPage(page);
   const bannersPage:BannersPage = new BannersPage(page);
 
