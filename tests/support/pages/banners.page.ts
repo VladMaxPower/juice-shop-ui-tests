@@ -8,6 +8,7 @@ export default class {
   }
 
   async clickCloseWelcomeBannerButton () {
+    await this.page.waitForSelector(BannersPageElements.closeWelcomeBannerButton());
     await this.page.click(BannersPageElements.closeWelcomeBannerButton());
   }
 
