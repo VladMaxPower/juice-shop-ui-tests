@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import 'dotenv/config';
 
 /**
  * Read environment variables from file.
@@ -10,17 +11,21 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests/e2e',
   fullyParallel: true,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'http://127.0.0.1:3000',
-    trace: 'on-first-retry'
+    trace: 'on-first-retry',
+    headless: false
   },
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] }
+      use: {
+        ...devices['Desktop Chrome'],
+        launchOptions: {
+          slowMo: 250
+        }
+      }
     }
     // {
     //   name: 'firefox',
