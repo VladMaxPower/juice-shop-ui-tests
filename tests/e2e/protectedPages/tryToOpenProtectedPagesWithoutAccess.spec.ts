@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import HomePage from '../../support/pages/home.page';
 import BannersPage from '../../support/pages/banners.page';
 
-test('Try to open admin panel page without access', async ({ page }) => {
+test('(security) Try to open admin panel page without access', async ({ page }) => {
   const homePage:HomePage = new HomePage(page);
   const bannersPage:BannersPage = new BannersPage(page);
 
