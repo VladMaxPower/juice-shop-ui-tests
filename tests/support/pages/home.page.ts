@@ -12,8 +12,22 @@ export default class {
     await this.page.goto('');
   }
 
-  async getItemsName () {
-    return this.page.textContent(HomePageElements.itemName());
+  async getItemsNames () {
+    return this.page.$$(HomePageElements.itemName());
+  }
+
+  async getItemsNamesArray () {
+    const items = await this.getItemsNames();
+    const texts = [];
+    for (const element of items) {
+      const text = await element.textContent();
+      texts.push(text.trim());
+    }
+    return texts;
+  }
+
+  arraysHaveNoDuplicates (firstArr, secondArr) {
+    return !firstArr.some(element => secondArr.includes(element));
   }
 
   async getPageItems () {
