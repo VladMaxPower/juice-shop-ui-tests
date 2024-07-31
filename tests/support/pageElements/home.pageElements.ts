@@ -5,4 +5,7 @@ export default class {
   nextPageButton = ():string => '.mat-paginator-navigation-next';
   previousPageButton = ():string => '.mat-paginator-navigation-previous';
   headerText = ():string => '.heading';
+  searchButton = ():string => '#searchQuery';
+  searchField = ():string => '#mat-input-0';
+  noSearchResultsMessage = ():string => '.noResultText';
 }

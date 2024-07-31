@@ -9,8 +9,8 @@ test('Login to account with valid user data', async ({ page }) => {
   const bannersPage:BannersPage = new BannersPage(page);
 
   const firstSuccessfulMessage:string = 'You successfully solved a challenge: Password Strength ' +
-        "(Log in with the administrator's user credentials without previously changing them or applying SQL Injection.)";
-  const secondSuccessfulMessage:string = "You successfully solved a challenge: Login Admin (Log in with the administrator's user account.)";
+        "(Log in with the administrator's user credentials without previously changing them or applying SQL Injection.)X";
+  const secondSuccessfulMessage:string = "You successfully solved a challenge: Login Admin (Log in with the administrator's user account.)X";
   const adminUserData:UserData = DataProviderHelper.adminUserData();
   await loginPage.openBasePage();
   await bannersPage.clickCloseWelcomeBannerButton();

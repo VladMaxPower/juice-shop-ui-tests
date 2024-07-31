@@ -38,6 +38,10 @@ export default class {
     return this.page.locator(HomePageElements.itemName()).count();
   }
 
+  async getNoSearchResultsMessage () {
+    return this.page.textContent(HomePageElements.noSearchResultsMessage());
+  }
+
   async selectItemsPerPage (data:ItemsPerPage) {
     await this.openItemsPerPageDropDown();
     await this.clickOptionInDropDownItemsPerPage(data);
@@ -61,6 +65,20 @@ export default class {
 
   async getHeaderText () {
     return this.page.textContent(HomePageElements.headerText());
+  }
+
+  async clickSearchButton () {
+    await this.page.click(HomePageElements.searchButton());
+  }
+
+  async enterDataToSearchField (data) {
+    await this.page.fill(HomePageElements.searchField(), data);
+  }
+
+  async searchByData (data) {
+    await this.clickSearchButton();
+    await this.enterDataToSearchField(data);
+    await this.page.keyboard.press('Enter');
   }
 
   async getNewLanguage (currentLanguage) {
