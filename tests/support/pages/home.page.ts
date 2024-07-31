@@ -38,6 +38,10 @@ export default class {
     return this.page.locator(HomePageElements.itemName()).count();
   }
 
+  async getNoSearchResultsMessage () {
+    return this.page.textContent(HomePageElements.noSearchResultsMessage());
+  }
+
   async selectItemsPerPage (data:ItemsPerPage) {
     await this.openItemsPerPageDropDown();
     await this.clickOptionInDropDownItemsPerPage(data);
@@ -63,6 +67,20 @@ export default class {
     return this.page.textContent(HomePageElements.headerText());
   }
 
+  async clickSearchButton () {
+    await this.page.click(HomePageElements.searchButton());
+  }
+
+  async enterDataToSearchField (data) {
+    await this.page.fill(HomePageElements.searchField(), data);
+  }
+
+  async searchByData (data) {
+    await this.clickSearchButton();
+    await this.enterDataToSearchField(data);
+    await this.page.keyboard.press('Enter');
+  }
+
   async getNewLanguage (currentLanguage) {
     const languageList = await this.getLanguageList();
     const clearLanguageList = this.excludeLanguageByKey(languageList, currentLanguage);
@@ -73,8 +91,8 @@ export default class {
     const responsePromise = this.page.waitForResponse('**/rest/languages');
     await this.openBasePage();
     const response = await responsePromise;
-    // @ts-ignore
-    return JSON.parse(await response.body());
+    const responseBody = (await response.body()).toString();
+    return JSON.parse(responseBody);
   }
 
   getRandomLanguage = (arr) => {
