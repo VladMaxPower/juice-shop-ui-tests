@@ -91,8 +91,8 @@ export default class {
     const responsePromise = this.page.waitForResponse('**/rest/languages');
     await this.openBasePage();
     const response = await responsePromise;
-    // @ts-ignore
-    return JSON.parse(await response.body());
+    const responseBody = (await response.body()).toString();
+    return JSON.parse(responseBody);
   }
 
   getRandomLanguage = (arr) => {
