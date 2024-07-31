@@ -11,14 +11,14 @@ import 'dotenv/config';
 export default defineConfig({
   testDir: './tests/e2e',
   fullyParallel: true,
-  reporter: 'html',
+  reporter: [['html', { open: 'never' }], ['list']],
   use: {
-    baseURL: 'http://127.0.0.1:3000',
+    baseURL: process.env.BASE_URL,
     trace: 'on-first-retry'
   },
   projects: [
     {
-      name: 'chromium',
+      name: 'Chromium',
       use: {
         ...devices['Desktop Chrome'],
         launchOptions: {

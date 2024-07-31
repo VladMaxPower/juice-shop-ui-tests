@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "",
+    "test": "npx playwright test",
+    "debug": "npx playwright test --ui",
     "lint": "eslint . --fix"
   },
   "author": "",
