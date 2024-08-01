@@ -17,6 +17,7 @@ This project contains automated UI tests using TypeScript and Playwright. The te
 To install the project dependencies, run the following command:
 
 `$ npm install`
+
 `$ npx playwright install`
 
 ### Code Style
