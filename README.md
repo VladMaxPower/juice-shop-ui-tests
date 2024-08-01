@@ -17,6 +17,7 @@ This project contains automated UI tests using TypeScript and Playwright. The te
 To install the project dependencies, run the following command:
 
 `$ npm install`
+`$ npx playwright install`
 
 ### Code Style
  To check the code style, run:
@@ -34,7 +35,7 @@ To run all tests using Docker, follow these steps:
    `$ docker build -t juice-shop-ui-tests .`
 2. Run the Docker container for macOS and Windows:
    ``` 
-    $ docker run \
+    docker run \
    -e "BASE_URL=http://host.docker.internal:3000" \
    -e "USER_EMAIL=your_email@example.com" \
    -e "USER_PASSWORD=your_password" \
