@@ -1,4 +1,4 @@
-# juice-shop-ui-tests
+# playwright_ts_simple_framework
 
 This project contains automated UI tests using TypeScript and Playwright. The tests follow best practices in code style and design patterns to ensure maintainability and readability.
 
